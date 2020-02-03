@@ -1,0 +1,46 @@
+
+==========================================
+========== TEST 1 : The Alphabet =========
+==========================================
+
+|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
+|HHHHHHHHHHHHHHHHHHHh
+|(null)
+
+Not Good - Wrong Number Of Lines
+
+==========================================
+========= TEST 8 : SUPER FAT FILE ========
+==========================================
+
+|9GN+3XuFJq9SoIVEwyf9N6V0SsRGamXC+5i7fs3TQaDax3Q7obX6his/LqVswZ12
+|usgHS9HW75
+|wEGfhmTvRXRz6YBwbEE5O
+|lVPvEZMYOOtV3GhUtm2NrIwb3bd+tL7W
+|BV1KaDQrmRdApVW1seTmckcTOaLgSwWs/s2aQoWBkgy
+|ACuu6LpBAjktxalT6MYriUxW5QB1DtSoX9KDXMcxMJBu3QCcqpL+lA
+|
+|WJ7RU7QdOTm
+|3jmP8rx4Z2YlhcHdDplUiv
+|UFsoxHHUlxyIq+5dzqXmcZWiRosLX3BGb
+|Zd8fv9RjX/cNKlckByynwebDxzeL3SOdIXWJCK1j/v0k
+|UwVtulu1iLQMZGpKWSkzOK7qlWj2muEt0TCo3zCkJ7olnbCtaqekC/g
+|z
+|5jy6JjBxXqCD
+|ebDxzeL3SOdIXWJCK1j/v0k
+|RuQ5kTFLdT8pRHQx4RUBeNZxbUd8M9oPjI
+|MNQixBwjTAkNdK23wByeu2aquhtyabFRqbmSE+kHCoRVW
+|gANMkqF2M23hv7MWkm0Rbv4UqQdNCBhOZTICjYL+CiMNLEQkNqoJsE35
+|JN
+|(null)
+
+Not Good - Wrong Number Of Lines
+
+==========================================
+======== TEST 8 : SUPER LONG LINE ========
+==========================================
+
+(null)
+
+Right number of lines
+
