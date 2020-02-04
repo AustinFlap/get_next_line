@@ -6,59 +6,45 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:13 by avieira           #+#    #+#             */
-/*   Updated: 2020/02/03 05:19:40 by avieira          ###   ########.fr       */
+/*   Updated: 2020/02/04 04:00:15 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
 
-static int		get_len_to_end(char *str)
+char	*append_line(char *buff, char *stock, int *new_line)
 {
-	int				l;
-
-	l = 0;
-	while (*str && *str++ != '\n')
-		l++;
-	return (l);
-}
-
-char	*append_line(char *buff, char *stock, int ret)
-{
-	int len;
+	int l_to_end;
+	int l_buff;
 	char *temp_stock;
 	char *temp_substr;
-	int		new_line;
-
-	len = get_len_to_end(buff);
-	temp_stock = stock;
-	temp_substr = ft_substr(buff, 0, len);
-	stock = ft_strjoin(temp_stock, temp_substr);
-	if (temp_stock)
-		free(temp_stock);
-	if (temp_substr)
-		free(temp_substr);
-	new_line = (buff[len] == '\n') ? 1 : 0;
-	ft_memmove(buff, buff + len + new_line, ret - len - new_line);
-	buff[ret - len - new_line] = 0;
-	if (new_line)
-		return (stock);
-	return (0);
+	
+	l_to_end = ft_strl_spec(buff, '\n');
+	l_buff = ft_strl_spec(buff, 0);
+	temp_substr = ft_substr(buff, 0, l_to_end);
+	temp_stock = ft_strjoin(stock, temp_substr);
+	free(stock);
+	free(temp_substr);
+	stock = temp_stock;
+	*new_line = (buff[l_to_end] == '\n') ? 1 : 0;
+	ft_memcpy(buff, buff + l_to_end + *new_line, l_buff - l_to_end - *new_line + 1);
+	return (stock);
 }
 
 
 int		get_next_line(int fd, char **line)
 {
-	static char		buff[MAX_FD][BUFFER_SIZE];
+	static char		buff[MAX_FD][BUFFER_SIZE + 1];
 	char			*stock;
 	int				ret;
+	int				new_line;
 
 	if (!line || !(MAX_FD > fd))
 		return (-1);
 	stock = ft_strdup("");
-	printf("|%p|\n", stock);
-	*line = 0;
-	while (!*line)
+	new_line = 0;
+	while (!new_line)
 	{
 		if (!*buff[fd])
 		{
@@ -66,8 +52,11 @@ int		get_next_line(int fd, char **line)
 				return (ret);
 			buff[fd][ret] = 0;
 		}
-		*line = append_line(buff[fd], stock, ret);
+		stock = append_line(buff[fd], stock, &new_line);
+		if (ret < BUFFER_SIZE)
+			new_line = 1;
 	}
+	*line = stock;
 	return (1);
 }
 
@@ -78,7 +67,7 @@ int main(void)
 {
 	int fd = open("files/mix_marge2", O_RDONLY);
 	char *line = 0;
-
 	while (get_next_line(fd, &line))
 		printf("%s\n", line);
 }
+
