@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:13 by avieira           #+#    #+#             */
-/*   Updated: 2020/02/04 05:48:15 by avieira          ###   ########.fr       */
+/*   Updated: 2020/02/04 05:33:12 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		get_next_line(int fd, char **line)
 	int				ret;
 	int				new_line;
 
-	if (!line || !(MAX_FD > fd) || !BUFFER_SIZE)
+	if (!line || !(MAX_FD > fd))
 		return (-1);
 	*line = ft_strdup("");
 	new_line = 0;

@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 14:31:18 by avieira           #+#    #+#             */
-/*   Updated: 2020/02/04 05:45:40 by avieira          ###   ########.fr       */
+/*   Updated: 2020/02/04 05:38:22 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+//# define BUFFER_SIZE 5
 # define MAX_FD 100
 
 char			*ft_strjoin(char *s1, char *s2);
