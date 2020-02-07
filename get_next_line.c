@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:13 by avieira           #+#    #+#             */
-/*   Updated: 2020/02/07 15:28:56 by avieira          ###   ########.fr       */
+/*   Updated: 2020/02/07 19:19:50 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ int		get_next_line(int fd, char **line)
 #include<fcntl.h>
 int main(void)
 {
-	int fd = open("files/test", O_RDONLY);
-	printf("fd empty |%d|\n", fd);
+	int fd = open("files/mix_marge2", O_RDONLY);
+	//printf("fd empty |%d|\n", fd);
 	char *line;
 	while (get_next_line(fd, &line) > 0)
 	{
