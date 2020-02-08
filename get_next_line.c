@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:13 by avieira           #+#    #+#             */
-/*   Updated: 2020/02/08 02:15:04 by avieira          ###   ########.fr       */
+/*   Updated: 2020/02/08 03:58:46 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,13 @@ static char			*append_line(char *buff, char *line, int *new_line)
 		*new_line = 1;
 	return (line);
 }
-#include <stdio.h>
+
 static int			ini_check(int fd, char **line, char *buff, int *new_line)
 {
 	if (!line || !(MAX_FD > fd) || !BUFFER_SIZE)
 	{
 		if (line)
 			free(*line);
-		if(line)
-			printf("--%s\n", *line);
 		return (1);
 	}
 	if (!(*line = ft_strdup("")))
@@ -83,3 +81,32 @@ int					get_next_line(int fd, char **line)
 	buff[fd][BUFFER_SIZE + 1] = 0;
 	return (0);
 }
+/*
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+int main(void)
+{
+	char *line = 0;
+	int fd;
+
+	fd = open("files/mix_marge1", O_RDONLY);
+	while (get_next_line(fd, &line) > 0)
+	{
+		printf("%s\n", line);
+		free(line);
+	}
+	printf("%6s\n", line);
+	free(line);
+	close(fd);
+	fd = open("files/", O_RDONLY);
+	while (get_next_line(fd, &line) > 0)
+	{
+		printf("%s\n", line);
+		free(line);
+	}
+	printf("%6s\n", line);
+	free(line);
+	close(fd);
+	return (0);
+}*/
