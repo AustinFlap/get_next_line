@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 14:31:18 by avieira           #+#    #+#             */
-/*   Updated: 2020/02/04 05:45:40 by avieira          ###   ########.fr       */
+/*   Updated: 2020/02/07 23:35:50 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# define MAX_FD 100
+# define MAX_FD 250
 
 char			*ft_strjoin(char *s1, char *s2);
 char			*ft_strdup(char *s1);
-//void			*ft_memmove(void *dst, void *src, size_t len);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 size_t			ft_strl_spec(const char *str, char spec);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-int		get_next_line(int fd, char **line);
+void			*ft_memcpy(void *dst, const void *src, size_t n);
+int				get_next_line(int fd, char **line);
 
 #endif
