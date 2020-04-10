@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:15:30 by avieira           #+#    #+#             */
-/*   Updated: 2020/04/10 21:43:33 by avieira          ###   ########.fr       */
+/*   Updated: 2020/04/11 01:54:31 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void					*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-char					*ft_substr(char const *s, unsigned int start, size_t len)
+char					*ft_substr(char const *s, unsigned int start, size_t l)
 {
 	int					i;
 	char				*substr;
@@ -87,12 +87,12 @@ char					*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	while (s[len_s])
 		len_s++;
-	len = (len > len_s - start) ? len_s - start : len;
-	len = (start > len_s) ? 0 : len;
-	if (!(substr = malloc(sizeof(char) * (len + 1))))
+	l = (l > len_s - start) ? len_s - start : l;
+	l = (start > len_s) ? 0 : l;
+	if (!(substr = malloc(sizeof(char) * (l + 1))))
 		return (NULL);
 	i = 0;
-	while (len-- && s[start + i])
+	while (l-- && s[start + i])
 	{
 		substr[i] = s[start + i];
 		i++;
