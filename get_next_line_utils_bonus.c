@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:15:30 by avieira           #+#    #+#             */
-/*   Updated: 2020/02/07 23:28:58 by avieira          ###   ########.fr       */
+/*   Updated: 2020/04/10 21:43:33 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t				ft_strl_spec(const char *s, char spec)
+size_t					ft_strl_spec(const char *s, char spec)
 {
-	int				l;
+	int					l;
 
 	l = 0;
 	while (s[l] && s[l] != spec)
@@ -30,7 +30,8 @@ char					*ft_strjoin(char *s1, char *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	if (!(s = malloc(sizeof(char) * (ft_strl_spec(s1, 0) + ft_strl_spec(s2, 0) + 1))))
+	if (!(s = malloc(sizeof(char) * (ft_strl_spec(s1, 0)
+		+ ft_strl_spec(s2, 0) + 1))))
 		return (NULL);
 	i = 0;
 	j = 0;
@@ -75,7 +76,7 @@ void					*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-char    *ft_substr(char const *s, unsigned int start, size_t len)
+char					*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	int					i;
 	char				*substr;

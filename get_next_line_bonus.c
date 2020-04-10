@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:13 by avieira           #+#    #+#             */
-/*   Updated: 2020/02/08 00:25:09 by avieira          ###   ########.fr       */
+/*   Updated: 2020/04/10 21:39:02 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char			*append_line(char *buff, char *line, int *new_line)
+static char			*append_line(char *buff, char *line, int *nl)
 {
 	int				l_to_end;
 	int				l_buff;
@@ -28,10 +28,10 @@ static char			*append_line(char *buff, char *line, int *new_line)
 	free(line);
 	free(temp_substr);
 	line = temp_line;
-	*new_line = (buff[l_to_end] == '\n') ? 1 : 0;
-	ft_memcpy(buff, buff + l_to_end + *new_line, l_buff - l_to_end - *new_line + 1);
+	*nl = (buff[l_to_end] == '\n') ? 1 : 0;
+	ft_memcpy(buff, buff + l_to_end + *nl, l_buff - l_to_end - *nl + 1);
 	if (buff[BUFFER_SIZE + 1])
-		*new_line = 1;
+		*nl = 1;
 	return (line);
 }
 
