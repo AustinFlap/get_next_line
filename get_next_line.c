@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:13 by avieira           #+#    #+#             */
-/*   Updated: 2020/02/08 03:58:46 by avieira          ###   ########.fr       */
+/*   Updated: 2020/02/09 13:21:47 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int					get_next_line(int fd, char **line)
 	return (0);
 }
 /*
+#include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -90,23 +91,14 @@ int main(void)
 	char *line = 0;
 	int fd;
 
-	fd = open("files/mix_marge1", O_RDONLY);
-	while (get_next_line(fd, &line) > 0)
-	{
-		printf("%s\n", line);
+		fd = open("files/alphabet", O_RDONLY);
+		while (get_next_line(fd, &line) > 0)
+		{
+			printf("%s\n", line);
+			free(line);
+		}
+		printf("%6s\n", line);
 		free(line);
-	}
-	printf("%6s\n", line);
-	free(line);
-	close(fd);
-	fd = open("files/", O_RDONLY);
-	while (get_next_line(fd, &line) > 0)
-	{
-		printf("%s\n", line);
-		free(line);
-	}
-	printf("%6s\n", line);
-	free(line);
-	close(fd);
+		close(fd);
 	return (0);
 }*/
