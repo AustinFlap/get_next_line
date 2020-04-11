@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:13 by avieira           #+#    #+#             */
-/*   Updated: 2020/04/10 21:39:02 by avieira          ###   ########.fr       */
+/*   Updated: 2020/04/10 21:41:49 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,17 @@ static char			*append_line(char *buff, char *line, int *nl)
 static int			ini_check(int fd, char **line, char *buff, int *new_line)
 {
 	if (!line || !(MAX_FD > fd) || !BUFFER_SIZE)
+	{
+		if (line)
+			free(*line);
 		return (1);
+	}
 	if (!(*line = ft_strdup("")))
 		return (1);
 	if (fd == -1)
 	{
 		*new_line = 1;
 		buff[BUFFER_SIZE + 1] = 1;
-		free(line);
 	}
 	else
 		*new_line = 0;
