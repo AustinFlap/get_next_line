@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:13 by avieira           #+#    #+#             */
-/*   Updated: 2020/04/10 21:41:49 by avieira          ###   ########.fr       */
+/*   Updated: 2020/04/11 03:57:22 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ static char			*append_line(char *buff, char *line, int *nl)
 	return (line);
 }
 
-static int			ini_check(int fd, char **line, char *buff, int *new_line)
+static int			ini_check(int fd, char **line, int *new_line)
 {
-	if (!line || !(MAX_FD > fd) || !BUFFER_SIZE)
+	if (!line || !(MAX_FD > fd) || BUFFER_SIZE < 1 || fd < 0)
 	{
 		if (line)
 			free(*line);
@@ -45,13 +45,7 @@ static int			ini_check(int fd, char **line, char *buff, int *new_line)
 	}
 	if (!(*line = ft_strdup("")))
 		return (1);
-	if (fd == -1)
-	{
-		*new_line = 1;
-		buff[BUFFER_SIZE + 1] = 1;
-	}
-	else
-		*new_line = 0;
+	*new_line = 0;
 	return (0);
 }
 
@@ -61,7 +55,7 @@ int					get_next_line(int fd, char **line)
 	int				ret;
 	int				new_line;
 
-	if (ini_check(fd, line, buff[fd], &new_line))
+	if (ini_check(fd, line, &new_line))
 		return (-1);
 	while (!new_line)
 	{
