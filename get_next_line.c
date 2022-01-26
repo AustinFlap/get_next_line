@@ -6,11 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:13 by avieira           #+#    #+#             */
-/*   Updated: 2020/04/11 03:57:22 by avieira          ###   ########.fr       */
+/*   Updated: 2022/01/26 14:12:25 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+#define BUFFER_SIZE 2048
 
 static char			*append_line(char *buff, char *line, int *nl)
 {
