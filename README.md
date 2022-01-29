@@ -11,3 +11,5 @@
  |  1 | One line got read | 
  |  0| End of stream got reached | 
  | -1 |  An error has occured | 
+ 
+ The line that was read his stocked in `*line`.
